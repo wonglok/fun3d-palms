@@ -32,7 +32,12 @@ export class RefractionArea extends O3D {
       this.renderable.position.z = depth
       this.add()
 
-      this.renderable.material.uniforms['tDudv'].value = new TextureLoader().load('/texture/bg/wavy.jpg')
+      let bURL = ''
+      if (window.CONFIG_FUN3D) {
+        bURL = window.CONFIG_FUN3D.bURL
+      }
+
+      this.renderable.material.uniforms['tDudv'].value = new TextureLoader().load(bURL + '/texture/bg/wavy.jpg')
       this.renderable.material.uniforms['resolution'].value = new Vector2(RES_SIZE, RES_SIZE * camera.aspect)
 
       // geometry

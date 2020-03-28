@@ -26,17 +26,21 @@ export class Router extends O3D {
     this.page = 'home'
 
     this.$router = this.$parent.$router
+
     let onArrive = () => {
-      this.page = this.$router.lastRouteResolved().url
+      // console.log(this.$router.lastRouteResolved())
+      this.page = this.$router.lastRouteResolved().url.replace('//', '/')
       console.log('page change', this.page)
       this.syncDOM()
     }
+
     let onNotFound = () => {
       let lastURL = this.$router.lastRouteResolved().url
       this.from = `Page not found.... You come from ${lastURL}`
       this.page = `/404`
       this.syncDOM()
     }
+
     // this.$router.on('', onArrive).resolve()
     this.$router.on('/', onArrive).resolve()
     this.$router.on('/red', onArrive).resolve()

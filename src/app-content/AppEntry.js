@@ -45,7 +45,7 @@ export class AppEntry extends O3D {
     // BEFORE MOUNT
     // Setup loop
     this.base = makeBase()
-    this.$router = new Navigo(location.origin)
+    this.$router = new Navigo(location.origin, true, '#')
     this.resources = {}
 
     // MOUNT

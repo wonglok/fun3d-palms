@@ -22,7 +22,13 @@ export class SkyPlane extends O3D {
     // this.color = new Color(this.props.color)
     // this.velocity = 0
 
-    let tex = new TextureLoader().load(`/texture/bg/white-flower.jpg`)
+
+    let bURL = ''
+    if (window.CONFIG_FUN3D) {
+      bURL = window.CONFIG_FUN3D.bURL
+    }
+
+    let tex = new TextureLoader().load(`${bURL}/texture/bg/white-flower.jpg`)
     // tex.wrapS = MirroredRepeatWrapping
     // tex.wrapT = MirroredRepeatWrapping
     tex.magFilter = NearestFilter
